@@ -1,0 +1,7 @@
+FROM php:7.3.3-apache
+RUN apt-get update -y
+RUN docker-php-ext-install mysqli
+COPY . /var/www/html/
+COPY ports.conf /etc/apache2/ports.conf
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+EXPOSE 9000

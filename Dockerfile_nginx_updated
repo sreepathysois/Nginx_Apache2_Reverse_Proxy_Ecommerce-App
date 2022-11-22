@@ -1,0 +1,10 @@
+FROM debian:bullseye-slim
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y nginx && apt-get install -y php-fpm
+COPY default /etc/nginx/sites-available/default
+EXPOSE 80
+#CMD /usr/sbin/nginx -g "daemon off;"
+#CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
+
